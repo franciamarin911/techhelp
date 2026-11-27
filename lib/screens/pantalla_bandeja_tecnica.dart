@@ -1,8 +1,12 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:techhelp/models/perfil_usuario.dart';
 import 'package:techhelp/screens/pantalla_detalle_ticket.dart';
+import 'package:techhelp/utils/navegacion.dart';
 
 class PantallaBandejaTecnica extends StatelessWidget {
-  const PantallaBandejaTecnica({super.key});
+  final PerfilUsuario perfil;
+
+  const PantallaBandejaTecnica({super.key, required this.perfil});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +17,7 @@ class PantallaBandejaTecnica extends StatelessWidget {
           IconButton(
             tooltip: 'Cerrar sesión',
             icon: const Icon(Icons.logout),
-            onPressed: () =>
-                Navigator.of(context).popUntil((ruta) => ruta.isFirst),
+            onPressed: () => cerrarSesionYVolverAlLogin(context),
           ),
         ],
       ),
@@ -23,6 +26,12 @@ class PantallaBandejaTecnica extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Text(
+              'Hola, ${perfil.nombreCompleto}',
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            Text('Rol: ${perfil.rol}'),
+            const SizedBox(height: 16),
             const Text(
               'Aquí irán las solicitudes sin asignar y tus casos (Etapa 7).',
             ),

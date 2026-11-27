@@ -1,5 +1,5 @@
 import 'package:material_ui/material_ui.dart';
-import 'package:techhelp/screens/pantalla_inicio_sesion.dart';
+import 'package:techhelp/screens/pantalla_raiz.dart';
 import 'package:techhelp/utils/tema_app.dart';
 
 class AplicacionTechhelp extends StatelessWidget {
@@ -11,7 +11,7 @@ class AplicacionTechhelp extends StatelessWidget {
       title: 'TECHHELP',
       debugShowCheckedModeBanner: false,
       theme: TemaApp.temaClaro,
-      home: const PantallaInicioSesion(),
+      home: const PantallaRaiz(),
     );
   }
 }
